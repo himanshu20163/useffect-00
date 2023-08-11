@@ -60,3 +60,17 @@
     height: 25px;
     width: 25px;
 }
+
+@media screen and (max-width:768px) {
+    .blog-container{
+        display: block;
+    } 
+    .blog-left-container{
+        width: 100%;
+    }
+    .blog-left-container .blog-read-descripiton .blog-description-left{
+        width: 100%;
+        justify-content: space-between;
+        margin:10px 0px;
+    }
+}

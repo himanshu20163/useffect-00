@@ -2,27 +2,27 @@ import React from 'react'
 import './blog.css';
 import blog1 from "./image/blog-img-1.jpg";
 
-const Blogcomponent = () => {
+const Blogcomponent = (props) => {
     return (
         <div className='blog-container'>
             <div className="blog-left-container">
                 <div className="blog-admin-detail">
-                    <img src="./image/one.jpg" className='profile-img'></img>
-                    <p>ahsdvahdva</p>
+                    <img src={props.image} className='profile-img'></img>
+                    <p>{props.profile_name}</p>
                 </div>
-                <h2>this is a heading</h2>
+                <h2>{props.heading}</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio similique nisi id cumque reprehenderit cum magni ea optio quas
                 </p>
                 <div className='blog-read-descripiton'>
                     <div className="blog-description-left">
                         <div className="blog-date">
-                            <span>Dec 4 . </span>
+                            <span>{props.date}</span>
                         </div>
                         <div className="blog-read-time">
-                            <span>6 min read</span>
+                            <span>{props.time}</span>
                         </div>
                         <div className="blog-category">
-                            <span>web 3</span>
+                            <span>{props.category}</span>
                         </div>
                     </div>
                     <div className="blog-description-right">
@@ -31,7 +31,7 @@ const Blogcomponent = () => {
                 </div>
             </div>
             <div className="blog-right-container">
-               <img src={blog1}></img>
+               <img src={props.bg}></img>
             </div>
         </div>
     )
