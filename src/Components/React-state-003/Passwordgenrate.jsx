@@ -1,55 +1,108 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react';
+import clipboardCopy from 'clipboard-copy';
 
-const Passwordgenrate = () => {
-    const[state,Setstate] = useState();
-    const[showtext,Setshowtext] = useState();
-    const get_value = (e)=>{
-        Setstate(e.target.value);
+const PasswordGenerator = () => {
+  const [passwordLength, setPasswordLength] = useState(8);
+  const [includeUppercase, setIncludeUppercase] = useState(true);
+  const [includeLowercase, setIncludeLowercase] = useState(true);
+  const [includeSpecialChars, setIncludeSpecialChars] = useState(true);
+  const [includeNumbers, setIncludeNumbers] = useState(true);
+  const [generatedPassword, setGeneratedPassword] = useState('');
+
+  const copyToClipboard = () => {
+    clipboardCopy(generatedPassword);
+    alert('Password copied to clipboard!');
+  };
+
+
+  const generatePassword = () => {
+    const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+    const specialChars = '!@#$%^&*()_-+=<>?';
+    const numberChars = '0123456789';
+
+    let allChars = '';
+    let password = '';
+
+    if (includeUppercase) allChars += uppercaseChars;
+    if (includeLowercase) allChars += lowercaseChars;
+    if (includeSpecialChars) allChars += specialChars;
+    if (includeNumbers) allChars += numberChars;
+
+    if (allChars === '') {
+      alert('Please select at least one character type.');
+      return;
     }
 
-    const add_data = ()=>{
-// Small alphabet characters array
-const smallAlphabets = Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i));
-
-// Capital alphabet characters array
-const capitalAlphabets = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
-
-// Special characters array
-const specialCharacters = [
-    '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '\\',
-    ':', ';', '"', '\'', '<', '>', ',', '.', '?', '/', '`', '~'
-];
-
-const number = [0,1,2,3,4,5,6,7,8,9];
-    
-const numRandomValues = Math.floor(state/4);
-console.log(numRandomValues);
-const small_alpha_value = generateRandomValues(smallAlphabets, numRandomValues);
-const captial_alpha_value  = generateRandomValues(capitalAlphabets, numRandomValues);
-const speacial_value = generateRandomValues(specialCharacters, numRandomValues);
-const no = generateRandomValues(number,numRandomValues);
-const ans = small_alpha_value+captial_alpha_value+speacial_value+no;
-console.log("Random Values:", ans);
-Setshowtext(ans); 
+    for (let i = 0; i < passwordLength; i++) {
+      const randomIndex = Math.floor(Math.random() * allChars.length);
+      password += allChars[randomIndex];
     }
 
-    function generateRandomValues(arr, numValues) {
-        const randomValues = [];
-        for (let i = 0; i < numValues; i++) {
-            const randomIndex = Math.floor(Math.random() * arr.length);
-            randomValues.push(arr[randomIndex]);
-        }
-        return randomValues;
-    }
-   
-    
+    setGeneratedPassword(password);
+  };
+
   return (
     <div>
-        <input type='text' onChange={get_value}></input>
-        <button onClick={add_data}>generate password</button>
-        <h2>{showtext}</h2>
+      <h1>Password Generator</h1>
+      <div>
+        <label>Password Length:</label>
+        <input
+          type="number"
+          value={passwordLength}
+          onChange={(e) => setPasswordLength(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={includeUppercase}
+            onChange={() => setIncludeUppercase(!includeUppercase)}
+          />
+          Include Uppercase
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={includeLowercase}
+            onChange={() => setIncludeLowercase(!includeLowercase)}
+          />
+          Include Lowercase
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={includeSpecialChars}
+            onChange={() => setIncludeSpecialChars(!includeSpecialChars)}
+          />
+          Include Special Characters
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={includeNumbers}
+            onChange={() => setIncludeNumbers(!includeNumbers)}
+          />
+          Include Numbers
+        </label>
+      </div>
+      <button onClick={generatePassword}>Generate Password</button>
+      {generatedPassword && (
+        <div>
+          <h2>Generated Password:</h2>
+          <p>{generatedPassword}</p>
+          <button onClick={copyToClipboard}>Copy to Clipboard</button>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Passwordgenrate
+export default PasswordGenerator;
