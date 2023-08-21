@@ -1,4 +1,4 @@
-
+import { all } from 'axios';
 import React, { useEffect, useState } from 'react'
 
 const Movieapp = () => {
@@ -18,8 +18,8 @@ const Movieapp = () => {
     }
     
   return (
-    <div style={{width:"100%",height:"auto",boxSizing:"border-box"}}>
-        <div style={{width:"80%",textAlign:"center",margin:"0px auto"}}>
+    <div style={{width:"100%",height:"auto",border:"2px solid red",boxSizing:"border-box"}}>
+        <div style={{width:"80%",textAlign:"center",border:"2px solid yellow",margin:"0px auto"}}>
         <h2>Movie App</h2>
         <div style={{display:"flex",justifyContent:"center"}}>
         <input type='text' placeholder='Enter Your movie name' onChange={(e)=>{

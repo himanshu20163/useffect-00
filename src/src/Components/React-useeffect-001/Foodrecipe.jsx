@@ -12,7 +12,6 @@ const Foodrecipe = () => {
         Setalldata(response.hits);
         console.log(alldata);
     }
-    
     useEffect(() => {
         ans();
     }, [])
