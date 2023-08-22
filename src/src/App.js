@@ -1,14 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Movieapp from './Components/useeffect-02/Movieapp';
-Foodrecipe
+import Github from './Components/useeffect-03/Github';
 
 function App() {
   return (
     <div className="App">
       {/* <Movieapp /> */}
-
-       <Movieapp /> 
+        <Github />
+       {/* <Movieapp />  */}
        
     </div>
   );

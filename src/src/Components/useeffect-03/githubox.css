@@ -1,0 +1,45 @@
+.github-box{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+.searchbox{
+    padding: 20px;
+    text-align: center;
+    margin:0px auto;
+    height: 10vh;
+    width:50%;
+    background-color: aliceblue;
+}
+.searchbox button{
+    margin:10px;
+    background-color: cadetblue;
+    color:black;
+    padding: 7px 25px; 
+    border-style: none;
+}
+.searchbox input{
+    margin:10px;
+    width: 60%;
+    padding: 5px;
+}
+.github-profile-box{
+    padding: 20px;
+    text-align: center;
+    margin:0px auto;
+    height: auto;
+    width:50%;
+    background-color: aliceblue;
+}
+.github-profile-box .profile-left{
+    width: 50%;
+}
+.github-profile-box .profile-right{
+    width: 50%;
+}
+.github-profile-box .profile-details{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
