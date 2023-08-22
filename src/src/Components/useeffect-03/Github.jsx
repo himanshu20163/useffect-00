@@ -20,9 +20,7 @@ const Github = () => {
     };
     fetchRepos();
   }
-
-
-
+  
   return (
     <div className='github-box'>
       <div className="searchbox">
