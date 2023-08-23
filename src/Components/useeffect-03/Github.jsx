@@ -79,6 +79,14 @@ const Github = () => {
                   })
                 }
               </div>
+              <div className="profile-repo">
+              <h2>Profile Repo</h2>
+                <ol>
+        {userdetails.map((item, index) => (
+          <a href={item.clone_url}><li key={index}>{item.clone_url}</li></a>
+        ))}
+      </ol>
+              </div>
             </div>
             )
           </div>
