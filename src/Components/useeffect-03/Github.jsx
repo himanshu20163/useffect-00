@@ -24,7 +24,7 @@ const Github = () => {
   return (
     <div className='github-box'>
       <div className="searchbox">
-        <h1>Search for username</h1>
+        <h1>Search for github username</h1>
         <span>
           <input type='text' onChange={(e) => {
             Setname(e.target.value);
