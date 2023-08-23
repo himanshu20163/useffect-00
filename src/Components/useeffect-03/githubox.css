@@ -1,5 +1,5 @@
 .github-box{
-    height: 100vh;
+    height: auto;
     width: 100%;
     background-color: black;
 }
@@ -26,13 +26,26 @@
 .github-profile-box{
     padding: 20px;
     text-align: center;
-    margin:0px auto;
+    margin:10px auto;
     height: auto;
     width:50%;
-    background-color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+}
+.github-profile-box .profile-image{
+    height: auto;
+    border:2px solid red;
+    width: 100%;
+    margin:50px 0px;
+    background-color: #fff;
+    padding: 20px;
 }
 .github-profile-box .profile-left{
-    width: 50%;
+    width: 50%; 
+    border-radius: 50%;
+}
+.github-profile-box .profile-left img{
+    border-radius: 50px;
 }
 .github-profile-box .profile-right{
     width: 50%;
@@ -42,4 +55,17 @@
     height: auto;
     display: flex;
     justify-content: space-around;
+}
+.github-profile-box .repo-url{
+    margin:20px;
+    width: 100%;
+    height: 50px;
+    border: 2px solid red;
+    background-color: #fff;
+}
+.github-profile-box .profile-repo{
+    padding: 20px;
+    width: 100%;
+    text-align: start;
+    background-color: #fff;
 }
